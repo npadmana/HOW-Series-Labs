@@ -17,7 +17,12 @@ run-cpu: runme
 	./runme
 
 queue-cpu: runme
-	echo "`pwd`/runme" | qsub -l nodes=1:knc:coprocessor -N lab-203-cpu
+	echo "OFFLOAD_REPORT=2 OFFLOAD_DEVICES=none `pwd`/runme" | \
+		qsub -l nodes=1:knc:coprocessor -N lab-203-cpu
+
+queue-mic: runme
+	echo "OFFLOAD_REPORT=2 `pwd`/runme" | qsub -l nodes=1:knc:coprocessor -N lab-203-cpu
 
 clean: 
-	rm -f *.o runme
+	rm -f *.o runme lab-203-cpu.o* lab-203-cpu.e*
+

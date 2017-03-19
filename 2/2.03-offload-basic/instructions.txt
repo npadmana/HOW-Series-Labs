@@ -8,7 +8,7 @@ Phi coprocessors. The  code simply multiplies a matrix A  by vector b,
 the result is stored in vector c.
 
 1. Compile the code for execution on the host, then run it to check if
-   the result is correct.
+   the result is correct. -- DONE
 
 2.  Now add  offload pragma  to  the code  to calculate  matrix-vector
    multiplication  on the  Xeon  Phi coprocessor.   Insert the  pragma
@@ -24,6 +24,7 @@ the result is stored in vector c.
    fix it by using: "in(A:length(n*m))"  clause, which is required for
    dynamically allocated  arrays. Other local variables/arrays  on the
    stack will be copied automatically, if not specified otherwise.
+DONE!
 
 3. If you have X11-window forwarding  enabled, or you are running this
    code in a  graphical desktop environment, use  micsmc-gui to verify
@@ -35,11 +36,13 @@ the result is stored in vector c.
    variable OFFLOAD_DEVICES=none. This  variable controls which device
    should be used for the offload. Run  the code and verify that it is
    now doing multiplication of the CPU.
+DONE
 
 5.  Switch back  to  OFFLOAD_DEVICES=0. Set  the environment  variable
    OFFLOAD_REPORT=n  for   n=1,  2   or  3  for   different  verbosity
    levels.  Check how  values  in the  report depend  on  size of  the
    problem (change n and m values).
+DONE
 
 6. By using:
 
@@ -49,15 +52,19 @@ the result is stored in vector c.
    verify   that   the   application   indeed  is   running   on   the
    coprocessor. Don't forget  to put this construct in  the code block
    bounded by {...} brackets following the offload pragma.
+DONE
 
 7. Move matrix-vector multiplication into a separate function. Offload
    this function call to the coprocessor.
+DONE
 
 8.  Declare  constant   integer  n,  and  vector  b[:]   as  a  global
 variable/array.
+DONE
 
 9. Use offload_attribute(push/pop) for function body and global vector
 b[:].
+DONE
 
 10.Memory  retention:  Check  the   amount  of  transfered  data  with
    OFFLOAD_REPORT=2.
@@ -68,4 +75,5 @@ b[:].
    loop  in  "iter".    Explicitly  specify  with  in/out/inout/nocopy
    clauses  what should  be done  with the  data. Verify  it with  the
    offload report.
+DONE
 
