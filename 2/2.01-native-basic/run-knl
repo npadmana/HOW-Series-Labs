@@ -1,0 +1,4 @@
+#PBS -l nodes=1:xeonphi
+
+cd $PBS_O_WORKDIR
+./hello-CPU

@@ -1,0 +1,6 @@
+#PBS -l nodes=1:xeon:coprocessor
+
+cd $PBS_O_WORKDIR
+
+scp hello-KNC mic0:~/
+ssh mic0 ./hello-KNC
