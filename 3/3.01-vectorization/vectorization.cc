@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 //adds two numbers and returns the sum
-double my_scalar_add(double, double);
+__attribute__((vector)) double my_scalar_add(double, double);
 //adds the second vector to the first
 void my_vector_add(int, double*, double*);
 
@@ -16,7 +16,6 @@ int main(){
   a[:]=1.0/(double)n;
   b[:]=2.0;
   
-
   for(int i = 0 ; i < n ; i++)   // Addition (For instructions 0 - 2)
     b[i]=a[i]+b[i];
 
